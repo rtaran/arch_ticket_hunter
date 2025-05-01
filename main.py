@@ -2,6 +2,24 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import os
+from flask import Flask
+from threading import Thread
+from dotenv import load_dotenv
+
+load_dotenv()
+
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "I'm alive!"
+
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
 
 # URL to check
 URL = "https://tickets.stoyanie.ru/shop/vhodnoj-bilet-na-arhstoyanie-detskoe-2025-na-tryoh-chelovek/"
