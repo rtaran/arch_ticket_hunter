@@ -53,4 +53,4 @@ def check_ticket():
 # Repeat check every 5 minutes
 while True:
     check_ticket()
-    time.sleep(300)
+    time.sleep(75)

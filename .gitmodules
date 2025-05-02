@@ -1,0 +1,3 @@
+[submodule "arch_ticket_hunter"]
+	path = arch_ticket_hunter
+	url = https://github.com/rtaran/arch_ticket_hunter.git
