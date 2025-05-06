@@ -9,3 +9,5 @@ services:
         sync: false
       - key: CHAT_ID
         sync: false
+      - key: STATUS_INTERVAL_HOURS
+        value: "3"

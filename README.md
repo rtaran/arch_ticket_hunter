@@ -4,22 +4,25 @@ A bot that monitors ticket availability for the Archstoyanie Festival and sends 
 
 ## Description
 
-Arch Ticket Hunter is a simple Python bot that periodically checks a specific URL for ticket availability to the Archstoyanie Festival. When tickets become available, it sends a notification via Telegram to alert the user.
+Arch Ticket Hunter is a Python bot that periodically checks for ticket availability to the Archstoyanie Festival. It features a Telegram interface with buttons for control and sends regular status reports.
 
 ## Features
 
-- Checks ticket availability every 5 minutes
-- Sends Telegram notifications when tickets are available
-- Includes a simple Flask web server to keep the bot alive when hosted on platforms like Replit
+- Interactive Telegram bot with control buttons
+- Regular status reports every 3 hours (configurable)
+- On-demand ticket availability checks
+- Ability to pause and resume the bot
+- Sends Telegram notifications when tickets become available
 
 ## Requirements
 
-- Python 3.12 or higher
+- Python 3.8 or higher
 - Dependencies:
   - Beautiful Soup 4
   - python-dotenv
-  - Flask
+  - python-telegram-bot
   - Requests
+  - Schedule
 
 ## Installation
 
@@ -34,24 +37,42 @@ Arch Ticket Hunter is a simple Python bot that periodically checks a specific UR
    pip install -r requirements.txt
    ```
 
-3. Create a `.env` file in the project root with the following variables:
+3. Create a `.env` file in the project root using the template:
+   ```
+   cp .env.template .env
+   ```
+
+4. Edit the `.env` file with your Telegram bot token and chat ID:
    ```
    TELEGRAM_TOKEN=your_telegram_bot_token
    CHAT_ID=your_telegram_chat_id
+   STATUS_INTERVAL_HOURS=3
    ```
 
 ## Usage
 
-Run the bot:
-```
-python main.py
-```
+1. Run the bot:
+   ```
+   python main.py
+   ```
 
-The bot will start checking for ticket availability every 5 minutes and will send a Telegram message when tickets become available.
+2. The bot will start and send you a welcome message in Telegram with control buttons.
+
+3. Available commands:
+   - `/start` - Start the bot and show control buttons
+   - `/status` - Check current ticket status
+   - `/controls` - Show control buttons
+   - `/help` - Show help message
+
+4. Control buttons:
+   - **Check Now** - Perform an immediate ticket availability check
+   - **Status** - Get the current status report
+   - **Pause Bot** - Pause automatic status reports
+   - **Resume Bot** - Resume automatic status reports
 
 ## Deployment
 
-This bot can be deployed on platforms like Replit or Render. The included Flask web server helps keep the bot alive on these platforms.
+This bot can be deployed on platforms like Render. The provided `render.yaml` file helps with configuration.
 
 ## License
 
